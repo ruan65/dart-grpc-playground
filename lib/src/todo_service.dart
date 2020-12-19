@@ -9,7 +9,7 @@ class TodoService extends TodoServiceBase {
   Future<TodoItem> createTodo(ServiceCall call, TodoItem request) async {
     final item = TodoItem();
     item.text = request.text;
-    item.id = request.id;
+    item.id = todos.items.length + 1;
     todos.items.add(item);
     return item;
   }
@@ -30,7 +30,7 @@ class TodoService extends TodoServiceBase {
 class TodoServer {
   Future serve() async {
     final server = Server([TodoService()]);
-    await server.serve(port: 9000);
+    await server.serve(port: 8888);
     print('Server is listening on the port ${server.port}');
   }
 }
