@@ -18,10 +18,10 @@ class TodoClient extends $grpc.Client {
       '/todoPackage.Todo/createTodo',
       ($0.TodoItem value) => value.writeToBuffer(),
       ($core.List<$core.int> value) => $0.TodoItem.fromBuffer(value));
-  static final _$readTodos = $grpc.ClientMethod<$0.VoidNoParam, $0.TodoItem>(
+  static final _$readTodos = $grpc.ClientMethod<$0.VoidNoParam, $0.TodoItems>(
       '/todoPackage.Todo/readTodos',
       ($0.VoidNoParam value) => value.writeToBuffer(),
-      ($core.List<$core.int> value) => $0.TodoItem.fromBuffer(value));
+      ($core.List<$core.int> value) => $0.TodoItems.fromBuffer(value));
   static final _$readTodosStream =
       $grpc.ClientMethod<$0.VoidNoParam, $0.TodoItem>(
           '/todoPackage.Todo/readTodosStream',
@@ -38,7 +38,7 @@ class TodoClient extends $grpc.Client {
     return $createUnaryCall(_$createTodo, request, options: options);
   }
 
-  $grpc.ResponseFuture<$0.TodoItem> readTodos($0.VoidNoParam request,
+  $grpc.ResponseFuture<$0.TodoItems> readTodos($0.VoidNoParam request,
       {$grpc.CallOptions options}) {
     return $createUnaryCall(_$readTodos, request, options: options);
   }
@@ -62,13 +62,13 @@ abstract class TodoServiceBase extends $grpc.Service {
         false,
         ($core.List<$core.int> value) => $0.TodoItem.fromBuffer(value),
         ($0.TodoItem value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$0.VoidNoParam, $0.TodoItem>(
+    $addMethod($grpc.ServiceMethod<$0.VoidNoParam, $0.TodoItems>(
         'readTodos',
         readTodos_Pre,
         false,
         false,
         ($core.List<$core.int> value) => $0.VoidNoParam.fromBuffer(value),
-        ($0.TodoItem value) => value.writeToBuffer()));
+        ($0.TodoItems value) => value.writeToBuffer()));
     $addMethod($grpc.ServiceMethod<$0.VoidNoParam, $0.TodoItem>(
         'readTodosStream',
         readTodosStream_Pre,
@@ -83,7 +83,7 @@ abstract class TodoServiceBase extends $grpc.Service {
     return createTodo(call, await request);
   }
 
-  $async.Future<$0.TodoItem> readTodos_Pre(
+  $async.Future<$0.TodoItems> readTodos_Pre(
       $grpc.ServiceCall call, $async.Future<$0.VoidNoParam> request) async {
     return readTodos(call, await request);
   }
@@ -95,7 +95,7 @@ abstract class TodoServiceBase extends $grpc.Service {
 
   $async.Future<$0.TodoItem> createTodo(
       $grpc.ServiceCall call, $0.TodoItem request);
-  $async.Future<$0.TodoItem> readTodos(
+  $async.Future<$0.TodoItems> readTodos(
       $grpc.ServiceCall call, $0.VoidNoParam request);
   $async.Stream<$0.TodoItem> readTodosStream(
       $grpc.ServiceCall call, $0.VoidNoParam request);
