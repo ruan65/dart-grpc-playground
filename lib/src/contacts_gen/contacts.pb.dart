@@ -68,6 +68,7 @@ class Person extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'Person', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'contacts'), createEmptyInstance: create)
     ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'name')
     ..a<$core.int>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'id', $pb.PbFieldType.O3)
+    ..aOS(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'email')
     ..pc<Person_PhoneNumber>(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'phones', $pb.PbFieldType.PM, subBuilder: Person_PhoneNumber.create)
     ..aOM<$0.Timestamp>(5, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'lastUpdated', subBuilder: $0.Timestamp.create)
     ..hasRequiredFields = false
@@ -114,19 +115,28 @@ class Person extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   void clearId() => clearField(2);
 
+  @$pb.TagNumber(3)
+  $core.String get email => $_getSZ(2);
+  @$pb.TagNumber(3)
+  set email($core.String v) { $_setString(2, v); }
+  @$pb.TagNumber(3)
+  $core.bool hasEmail() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearEmail() => clearField(3);
+
   @$pb.TagNumber(4)
-  $core.List<Person_PhoneNumber> get phones => $_getList(2);
+  $core.List<Person_PhoneNumber> get phones => $_getList(3);
 
   @$pb.TagNumber(5)
-  $0.Timestamp get lastUpdated => $_getN(3);
+  $0.Timestamp get lastUpdated => $_getN(4);
   @$pb.TagNumber(5)
   set lastUpdated($0.Timestamp v) { setField(5, v); }
   @$pb.TagNumber(5)
-  $core.bool hasLastUpdated() => $_has(3);
+  $core.bool hasLastUpdated() => $_has(4);
   @$pb.TagNumber(5)
   void clearLastUpdated() => clearField(5);
   @$pb.TagNumber(5)
-  $0.Timestamp ensureLastUpdated() => $_ensure(3);
+  $0.Timestamp ensureLastUpdated() => $_ensure(4);
 }
 
 class AddressBook extends $pb.GeneratedMessage {
